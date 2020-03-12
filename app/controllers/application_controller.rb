@@ -7,9 +7,13 @@ class ApplicationController < ActionController::Base
 		cookies.permanent[:remember_token] = temp
 	end
 
-	def setter
+	def retriver
 		if @user = User.find_by_token(cookies.permanent[:remember_token])
-			render html: 'Congrats' + @user.inspect.to_s
+			redirect_to login_path
 		end
+	end
+
+	def sign_out
+		cookies.permanent[:remember_token] = ""
 	end
 end

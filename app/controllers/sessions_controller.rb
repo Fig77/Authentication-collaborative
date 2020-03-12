@@ -13,10 +13,6 @@ class SessionsController < ApplicationController
 		end
 	end
 
-	def delete
-		cookies.permanent[:remember_token] = ""
-	end
-
 	private
 
 	def session_paramns
