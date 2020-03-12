@@ -12,18 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, placeholder: "Name" %>
   </div>
 
   <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%= form.text_field :email, placeholder: "Email" %>
   </div>
 
   <div class="field">
-    <%= form.label :pwd %>
-    <%= form.text_field :pwd %>
+    <%= form.text_field :password, placeholder:"Password"%>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :confirm_password, placeholder:"Confirm Password"%>
   </div>
 
   <div class="actions">
