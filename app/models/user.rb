@@ -1,12 +1,9 @@
 class User < ApplicationRecord
 	has_secure_password
-	before_create :token
-
-	private
-
-	def token
+	
+	before_create do 
 		temp = SecureRandom.urlsafe_base64
 		temp = Digest::SHA1.hexdigest temp
-		temp
+		self.token = temp
 	end
 end
