@@ -9,7 +9,6 @@ class ApplicationController < ActionController::Base
 
 	def retriver
 		if @user = User.find_by_token(cookies.permanent[:remember_token])
-			redirect_to login_path
 		end
 	end
 

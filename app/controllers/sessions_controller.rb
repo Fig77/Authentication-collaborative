@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
 	def new
-		retriver
 		@user	= User.new()
 	end
 
@@ -8,8 +7,10 @@ class SessionsController < ApplicationController
 		@user = User.find_by_email(params[:user][:email])
 		if(@user && @user.authenticate(params[:user][:password]))
 			permanent_coockie
-			render html: 'YES!' + cookies.permanent[:remember_token].inspect.to_s
-		else render html: 'Hello'
+			retriver
+			redirect_to login_path
+		else 
+			render html: 'Hello'
 		end
 	end
 
