@@ -4,10 +4,11 @@ class PostsController < ApplicationController
   end
 
   before_action do
-  	#sign_in?
+  	redirect_to login_path unless sign_in?
   end
 
   def new
+    @post = Post.new
   end
 
   def create
