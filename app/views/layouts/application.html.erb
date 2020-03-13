@@ -11,7 +11,7 @@
 
   <body>
     <h1>test</h1>
-    <%= @user.inspect %>
+    <%= User.find_by(token: session[:token]).inspect.to_s %>
     <main>
       <%= yield %>
     </main>
