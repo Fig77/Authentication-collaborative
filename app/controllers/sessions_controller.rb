@@ -49,8 +49,4 @@ class SessionsController < ApplicationController
     session.delete(:token)
     cookies.permanent[:remember_token] = ''
   end
-
-  def sign_in?
-    !current_user.nil?
-  end
 end
