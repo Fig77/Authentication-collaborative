@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  def index; end
+  def index
+  end
 
   before_action do
     redirect_to login_path unless sign_in?
@@ -11,16 +12,11 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-
-    respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
+         redirect_to root_path
       else
-        format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+      	 redirect_to posts_path
       end
-    end
   end
 
   private
@@ -32,6 +28,6 @@ class PostsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def post_params
-    params.require(:post).permit(:idUser, :post)
+    params.require(:post).permit(:idUser, :content)
   end
 end
