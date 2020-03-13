@@ -8,14 +8,11 @@ class ApplicationController < ActionController::Base
 		cookies.permanent[:remember_token] = temp
 	end
 
-	def retriver(user)
-		user = User.find_by_token(cookies.permanent[:remember_token])
-		redirect_to show_path unless user.nil?
+	def retriver
+		@current_user ||= User.find_by_token(cookies.permanent[:remember_token]) unless is_sign_in
 	end
 
 	def current_user
-		if session[:user_id]
-      @current_user ||= User.find_by(id: session[:user_id])
-    end
+			@current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
 	end
 end

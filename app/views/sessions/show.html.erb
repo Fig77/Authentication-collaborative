@@ -1,2 +1,2 @@
 <h1>Show Form</h1>
-<%= cookies.permanent[:remember_token] = ''%>
+<%= link_to 'Gozzilla', singout_path, method: :delete, data: { confirm: 'Are you sure?' } %>

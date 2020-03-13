@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new', as:'users'
   post 'login', to: 'sessions#create'
   get 'show', to: 'sessions#show', as: 'show'
+  delete 'singout', to: 'sessions#destroy'
 end

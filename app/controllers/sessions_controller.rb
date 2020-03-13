@@ -15,11 +15,16 @@ class SessionsController < ApplicationController
 		if(user && user.authenticate(params[:user][:password]))
 			permanent_coockie user
 			sign_in user
-			render html: session[:user_id].to_s + session[:token]
+			redirect_to login_path
 		else
       flash.now[:danger] = 'Invalid email/password combination'
       render 'new'
     end
+	end
+
+	def destroy
+		sign_out
+		redirect_to login_path
 	end
 
 	private
@@ -31,10 +36,12 @@ class SessionsController < ApplicationController
 	def sign_in(user)
 		session[:user_id] = user.id
 		session[:token] = user.token
-  end
+	end
 
 	def sign_out
-		session.delete
+		session.delete(:user_id)
+		session.delete(:token)
+		cookies.permanent[:remember_token] = ''
 	end
 
 	def is_sign_in
