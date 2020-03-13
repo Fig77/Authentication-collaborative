@@ -43,7 +43,6 @@ class SessionsController < ApplicationController
   def sign_in(user)
     session[:user_id] = user.id
     session[:token] = user.token
-
   end
 
   def sign_out
