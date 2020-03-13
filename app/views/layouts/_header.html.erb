@@ -1,0 +1,3 @@
+<header>
+  <%= User.find_by(token: session[:token]).inspect.to_s %>
+</header>
