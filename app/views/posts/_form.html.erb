@@ -1,7 +1,8 @@
 <%= form_for @post do |f| %>
-  <%= f.text_field :idUser, :placeholder => 'user id', :value => @current_user.id, :disabled => true %>
-  <br>
+  <%= f.text_field :name, :value => @current_user.name, :disabled => true, :style => 'color: black' %>
+   <br>
+   <br>
+  <%= f.text_field :idUser, :value => @current_user.id, :style => 'display:none' %>
   <%= f.text_field :content, :placeholder => 'content' %>
-  <br>
   <%= f.submit "Submit" %>
 <% end %>

@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   def index
+  	@post = Post.all
   end
 
   before_action do
@@ -19,7 +20,7 @@ class PostsController < ApplicationController
       end
   end
 
-  private
+
 
   # Use callbacks to share common setup or constraints between actions.
   def set_post
