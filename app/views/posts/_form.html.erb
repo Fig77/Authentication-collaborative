@@ -1,5 +1,7 @@
 <%= form_for @post do |f| %>
-  <%= f.text_field :idUser, :placeholder => 'user id', :value => @current_user.id %>
-  <%= f.text_field :content, :placeholder => 'content' %>
-  <%= f.submit "Log In" %>
+  <%= f.text_field :idUser, :placeholder => 'user id', :value => @current_user.id, :disabled => true %>
+  <br>
+  <%= f.text_area :content, :placeholder => 'content' %>
+  <br>
+  <%= f.submit "Submit" %>
 <% end %>
