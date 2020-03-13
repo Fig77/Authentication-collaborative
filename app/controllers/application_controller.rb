@@ -9,12 +9,13 @@ class ApplicationController < ActionController::Base
   end
 
   def retriver
-    @current_user ||= User.find_by_token(cookies.permanent[:remember_token]) unless is_sign_in
+    @current_user ||= User.find_by_token(cookies.permanent[:remember_token]) unless sign_in?
   end
 
   def current_user
     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
   end
+  helper_method :current_user
 
   def sign_in?
     !current_user.nil?

@@ -13,10 +13,11 @@ class SessionsController < ApplicationController
     if user&.authenticate(params[:user][:password])
       permanent_coockie user
       sign_in user
+      redirect_to root_path
     else
       danger
+      redirect_to login_path
     end
-    redirect_to login_path
   end
 
   def destroy
@@ -42,6 +43,7 @@ class SessionsController < ApplicationController
   def sign_in(user)
     session[:user_id] = user.id
     session[:token] = user.token
+
   end
 
   def sign_out
