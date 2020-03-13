@@ -1,3 +1,11 @@
+
+<% flash.each do |type, msg| %>
+	<% #msg.each do |x| %>
+   		<div class="alert alert-info">
+        	<p><%= msg %></p>
+    	</div>
+    <% #end %>
+<% end %>
 <%= form_for @user do |f| %>
   <%= f.text_field :email, :placeholder => 'email' %>
   <%= f.text_field :password, :placeholder => 'password' %>

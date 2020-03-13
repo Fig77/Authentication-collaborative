@@ -17,9 +17,9 @@ class SessionsController < ApplicationController
 			sign_in user
 			redirect_to login_path
 		else
-      flash.now[:danger] = 'Invalid email/password combination'
-      render 'new'
-    end
+		#danger 
+      	redirect_to login_path
+    	end
 	end
 
 	def destroy
@@ -28,6 +28,17 @@ class SessionsController < ApplicationController
 	end
 
 	private
+
+	def danger
+		email = params[:user][:email].split
+		password = params[:user][:password].split
+		flash[:danger] ||= []
+		unless email.empty? || password.empty? 
+			flash[:danger] << "Invalid email/password combination"
+      	end
+      	flash[:danger] << "email is empty" if email.empty?
+      	flash[:danger] << "password is empty" if password.empty?
+	end
 
 	def session_paramns
 		params.require(:user).permit(:token)
