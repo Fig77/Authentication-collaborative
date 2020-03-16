@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :post, class_name: 'Post', foreign_key: 'idUser'
+  has_many :posts, class_name: 'Post', foreign_key: 'idUser'
   has_secure_password
 
   before_create do

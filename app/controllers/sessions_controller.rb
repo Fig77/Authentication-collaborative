@@ -4,10 +4,6 @@ class SessionsController < ApplicationController
     redirect_to show_path if sign_in?
   end
 
-  def show
-    @user
-  end
-
   def create
     user = User.find_by_email(params[:user][:email])
     if user&.authenticate(params[:user][:password])

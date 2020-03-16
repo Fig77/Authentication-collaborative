@@ -1,6 +1,6 @@
 <header>
   <% unless current_user.nil? %>
-  <%= 'Welcome ' + current_user.name %>
+  <%= 'Welcome ' + current_user.name.to_s %>
   <%= link_to 'log out', singout_path, method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
 </header>
