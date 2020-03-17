@@ -20,4 +20,9 @@ class ApplicationController < ActionController::Base
   def sign_in?
     !current_user.nil?
   end
+
+  def sign_in(user)
+    session[:user_id] = user.id
+    session[:token] = user.token
+  end
 end

@@ -36,14 +36,10 @@ class SessionsController < ApplicationController
     params.require(:user).permit(:token)
   end
 
-  def sign_in(user)
-    session[:user_id] = user.id
-    session[:token] = user.token
-  end
-
   def sign_out
     session.delete(:user_id)
     session.delete(:token)
-    cookies.permanent[:remember_token] = ''
+    cookies.delete(:remember_token)
+    @current_user = nil
   end
 end
