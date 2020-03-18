@@ -1,14 +1,13 @@
 class SessionsController < ApplicationController
   def new
     @user = User.new
-    redirect_to show_path if sign_in?
+    redirect_to root_path if sign_in?
   end
 
   def create
     user = User.find_by_email(params[:user][:email])
     if user&.authenticate(params[:user][:password])
       permanent_coockie user
-      sign_in user
       redirect_to root_path
     else
       danger
@@ -32,13 +31,7 @@ class SessionsController < ApplicationController
     flash[:danger] << 'password is empty' if password.empty?
   end
 
-  def session_paramns
-    params.require(:user).permit(:token)
-  end
-
   def sign_out
-    session.delete(:user_id)
-    session.delete(:token)
     cookies.delete(:remember_token)
     @current_user = nil
   end

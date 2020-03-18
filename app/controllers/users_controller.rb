@@ -7,7 +7,6 @@ class UsersController < ApplicationController
     user = User.new(user_parms)
     if user.save
       permanent_coockie user
-      sign_in user
       redirect_to root_path
     else
       render 'new'
