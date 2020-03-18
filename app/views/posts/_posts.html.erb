@@ -1,0 +1,10 @@
+<table>
+  <tbody>
+    <% @post.each do |post| %>
+      <tr>
+        <td><%= post.content %></td>
+        <td><%= find_user(post.idUser) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
