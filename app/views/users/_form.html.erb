@@ -1,0 +1,7 @@
+<%= form_for(:user, url: signup_path) do |f| %>
+  <%= f.text_field :email, :placeholder => 'email' %>
+	<%= f.text_field :name, :placeholder => 'name' %>
+  <%= f.password_field :password, :placeholder => 'password' %>
+	<%= f.password_field :password_confirmation, :placeholder => 'repeat password' %>
+  <%= f.submit "Log In" %>
+<% end %>
