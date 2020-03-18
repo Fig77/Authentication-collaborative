@@ -32,6 +32,8 @@ class SessionsController < ApplicationController
   end
 
   def sign_out
+    user = User.find_by_token(cookies.permanent[:remember_token])
+    user.update(token: nil)
     cookies.delete(:remember_token)
     @current_user = nil
   end

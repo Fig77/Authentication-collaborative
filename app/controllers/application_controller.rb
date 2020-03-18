@@ -13,11 +13,12 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @current_user ||= User.find_by(token: cookies.permanent[:remember_token])
+    user = User.find_by(token: cookies.permanent[:remember_token])
+    @current_user ||= user unless user.nil? || user.token.nil?
   end
   helper_method :current_user
 
   def sign_in?
-    !current_user.nil?
+    !current_user.nil? || !cookies.permanent[:remember_token].nil?
   end
 end
