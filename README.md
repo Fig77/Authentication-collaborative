@@ -2,7 +2,7 @@
 [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/Dandush03/capstone-build-linter)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)]()
 
-> This is the sixth collaborative microverse project of the rails section
+> This is the sixth collaborative Microverse project off the rails section
 
 ---
 
@@ -36,8 +36,8 @@ Feel free to check the [issues page](./issues/).
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Thanks to Microverse for it Support!
+- Hat tip to anyone who's code was used
+- Thanks to Microverse for its Support!
 - Special thanks to the learnenought.com
 
 ---
@@ -63,4 +63,4 @@ Feel free to check the [issues page](./issues/).
 - Github: [@Dandush03](https://github.com/Dandush03)
 - Twitter: [@d_laloush](https://twitter.com/d_laloush)
 
-Give a ⭐️ if you like this project!
+Give an ⭐️ if you like this project!
